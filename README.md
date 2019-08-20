@@ -1,104 +1,106 @@
 # Quantum Manager
-## Файловый менеджер для Joomla!
-### Разделы
-- [Описание](#описание)
-- [Скриншоты](#скриншоты)
-- [Возможности](#возможности)
-- [Планируемые возможности](#планируемые-возможности)
-- [Переопределение стандартного менеджера](#переопределение-стандартного-менеджера)
-- [Архитектура](#архитектура)
-- [Документация](#документация)
-- [Лицензия](#лицензия)
-- [Требования](#требования)
-- [Разработчик](#разработчик)
-- [Поддержка](#поддержка)
+## File manager for Joomla!
+### Sections
+- [Description] (#description)
+- [Screenshots] (#screenshots)
+- [Features] (# features)
+- [Planned features] (#Planned features)
+- [Override standard manager] (#override-standard-manager)
+- [Architecture] (#architecture)
+- [Documentation] (#documentation)
+- [License] (#license)
+- [Requirements] (#requirements)
+- [Developer] (#developer)
+- [Support] (#support)
 
-### Описание
-Бесплатный файловый менеджер для Joomla! с помощью которого Вы сможете загружать, редактировать и вставлять в редактор (а так же и поля) файлы.
-Есть возможность переопределить вызовы стандартного файлового менеджера.
 
-### Скриншоты
-#### Вызов из поля типа media
+
+### Description
+Free file manager for Joomla! with the help of which you can upload, edit and paste files (as well as fields) into the editor.
+It is possible to override the calls of the standard file manager.
+
+### Screenshots
+#### Call from a field of type media
 |||
 | ------------- | ------------- |
 | ![Screenshot Quantum Manager 1](https://hika.su/images/screenshots/quantummanager/1.png)  | ![Screenshot Quantum Manager 2](https://hika.su/images/screenshots/quantummanager/2.png)  |
 | ![Screenshot Quantum Manager 3](https://hika.su/images/screenshots/quantummanager/3.png)  |  |
 
-#### Вставка в редактор
+#### Paste into the editor
 |||
 | ------------- | ------------- |
 | ![Screenshot Quantum Manager 6](https://hika.su/images/screenshots/quantummanager/6.png)  | ![Screenshot Quantum Manager 5](https://hika.su/images/screenshots/quantummanager/7.png)  |
 | ![Screenshot Quantum Manager 8](https://hika.su/images/screenshots/quantummanager/8.png)  |  |
 
-#### Настройки
+#### Settings
 |||
 | ------------- | ------------- |
 | ![Screenshot Quantum Manager 4](https://hika.su/images/screenshots/quantummanager/4.png)  | ![Screenshot Quantum Manager 5](https://hika.su/images/screenshots/quantummanager/5.png)  |
 
 
-### Возможности
-- Загружать файлы
-- Менять формат изображениям (jpg, png, webp)
-- Добавлять постфикс для имен файлов
-- Сохранение оригиналов изображений
-- Автоматический ресайз картинок
-- Обрезка изображений (используется Cropper.js: https://fengyuanchen.github.io/cropperjs)
-- Добавление водяного знака (с процетным его изменением под изображение)
-- Ограничение прав на действия в менеджере для разных групп пользователей
-- Мультиязычность (на данный момент поддерживается русский и английкий языки)
+### Opportunities
+- Upload files
+- Change the format of images (jpg, png, webp)
+- Add postfix for file names
+- Saving original images
+- Automatic image resize
+- Cropping images (used by Cropper.js: https://fengyuanchen.github.io/cropperjs)
+- Adding a watermark (with its percent change under the image)
+- Restriction of rights to actions in the manager for different user groups
+- Multilingualism (currently supported by Russian and English)
 
-### Планируемые возможности
-- Добавление интеграции с облаками (Я.Диск, Google Drive)
-- Редактирование текстовых файлов с помощью Codemirror с деревом файлов, с помощью которого можно переключаться на другие файлы
-- Простой аудиопеер для проигрывания аудио
+### Planned features
+- Adding integration with the clouds (Ya.Disk, Google Drive)
+- Editing text files using Codemirror with a file tree, with which you can switch to other files
+- Simple audio player for playing audio
 
-### Переопределение стандартного менеджера
-Создан плагин, который переопределяет вызовы стандартного менеджера.
-- Описание [Quantum Manager Media](https://github.com/Delo-Design/quantummanagermedia)
-- Скачать вы его можете тут: [Перейти](https://github.com/Delo-Design/quantummanagermedia/releases)
+### Override the standard manager
+A plugin has been created that redefines the calls of the standard manager.
+- Description of [Quantum Manager Media] (https://github.com/Delo-Design/quantummanagermedia)
+- You can download it here: [Go] (https://github.com/Delo-Design/quantummanagermedia/releases)
 
-### Архитектура
-Менеджер является составным. Каждая часть является автономной, которая не требует других частей. (На данный момент пока еще не доведена автономность, в ближайших релизах будет исправлено).
-Все части связаным между собой событиями на javascript, к которым вы можете так же подключаться в своих скриптах, для кастомизации поведения менедежра. (События будут описаны позже)
+### Architecture
+The manager is composite. Each part is autonomous, which does not require other parts. (At the moment, autonomy has not yet been brought, it will be fixed in the next releases).
+All parts are interconnected events in javascript, to which you can also connect in your scripts, to customize the behavior of the manager. (Events will be described later)
 
-Части менеджера:
-- Дерево каталогов
-- Загрузка файлов
-- Область просмотра файлов и каталогов
-- Тулбар действий
+Manager Parts:
+- Directory tree
+- Download files
+- File and directory browsing area
+- Toolbar action
 - Cropper.js
-- Codemirror (пока не реализовано)
-- Поиск (пока не реализовано)
-- Недавно открытые каталоги (пока не реализовано)
-- Закрепленные каталоги (пока не реализовано)
+- Codemirror (not yet implemented)
+- Search (not yet implemented)
+- Recently opened directories (not yet implemented)
+- Pinned directories (not yet implemented)
 
-Каждая часть это на стороне Joomla! - поле JForm. На фронте части именуются модулями.
+Every part is on the Joomla side! - field JForm. At the front, parts are called modules.
 
-Тем самым Вы можете составлять и комбинировать части менеджера как Вам удобно в своих формах, которые используют конструктор JForm.
+Thus, you can compose and combine parts of the manager as you wish in your forms that use the JForm constructor.
 
-### Документация
-Будет создана позже.
+### Documentation
+Will be created later.
 
-### Лицензия
+### License
 GPLv3
 
-### Требования
+### Requirements
 - Joomla >=3.9
 - PHP >=7.0
-- Библиотека jinterventionimage (https://github.com/Delo-Design/jinterventionimage)
+- jinterventionimage library (https://github.com/Delo-Design/jinterventionimage)
 
-### Разработчик
+### Developer
 
-Разработчик
-Компания "Деловой дизайн" https://delo-design.ru
+Developer
+Company "Business Design" https://delo-design.ru
 NorrNext - https://www.norrnext.com
 
-Официальная информация:
-- [Страница продукта на русском](https://hika.su/rasshireniya/quantum-manager)
-- [Страница продукта на английском](https://www.norrnext.com/quantum-manager)
-- [Страница на JED](https://extensions.joomla.org/extension/quantum-manager/)
+Official Information:
+- [Product page in Russian] (https://hika.su/rasshireniya/quantum-manager)
+- [Product page in English] (https://www.norrnext.com/quantum-manager)
+- [JED Page] (https://extensions.joomla.org/extension/quantum-manager/)
 
-[Форум поддержки на русском](https://www.norrnext.com/forum/quantum-manager-ru)
+[Support Forum in Russian] (https://www.norrnext.com/forum/quantum-manager-ru)
 
 
 
